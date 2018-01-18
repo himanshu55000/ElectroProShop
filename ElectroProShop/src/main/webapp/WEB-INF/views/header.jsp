@@ -47,9 +47,13 @@
       </li>
     </ul>
 	<ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="fa fa-user"></span> Register</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
-    </ul>
+       <c:if test='<%=(Boolean)session.getAttribute("loggedIn")!=null&&(Boolean)session.getAttribute("loggedIn")==true%>'>
+             <li><a href="<c:url value="/perform_logout"/>">
+         <span class="glyphicon glyphicon-log-out"></span> Logout</a></li></c:if>
+        <c:if test='<%=(Boolean)session.getAttribute("loggedIn")==null%>'>
+ <li><a href="${e}register"><span class="fa fa-user"></span> Register</a></li>
+      <li><a href="${e}login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+    </c:if></ul>
   </div></div>
 </nav>
 </header>

@@ -1,0 +1,7 @@
+create table UserDetails(
+full_name varchar(30),
+email varchar(30),
+address varchar(30),
+password varchar(30),
+username varchar(30) PRIMARY KEY,
+mobile bigint);
