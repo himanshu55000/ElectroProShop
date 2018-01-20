@@ -1,6 +1,11 @@
 package com.ElectroProShopBacked.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class UserDetails {
+	@Id
 	private String username; 
 	private String full_name,password,email,address;
 	private long mobile;
