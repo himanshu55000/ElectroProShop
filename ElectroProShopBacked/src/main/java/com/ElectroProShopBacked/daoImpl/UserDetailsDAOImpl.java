@@ -1,9 +1,5 @@
-package com.ElectroProShopBacked.dao;
+package com.ElectroProShopBacked.daoImpl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -13,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ElectroProShopBacked.config.DBConfig;
+import com.ElectroProShopBacked.dao.UserDetailsDAO;
 import com.ElectroProShopBacked.model.UserDetails;
 
 @Repository
