@@ -16,6 +16,8 @@ import com.ElectroProShopBacked.model.UserDetails;
 @Controller
 public class UserDetailsController {
 	@Autowired
+	UserDetails userDetails;
+	@Autowired
 	UserDetailsDAO userDetailsDAO;
 	@RequestMapping("/login")
 	public String login(@RequestParam(value="id",required=false) String id,Model m) {
@@ -35,13 +37,14 @@ public class UserDetailsController {
 	}
 	@RequestMapping("/addUser")
 	public String addUser(@RequestParam Map<String,String> user,Model m) {
-		UserDetails userDetails=new UserDetails();
 		userDetails.setFull_name(user.get("full_name"));
 		userDetails.setEmail(user.get("email"));
 		userDetails.setMobile(Long.parseLong(user.get("mobile")));
 		userDetails.setAddress(user.get("address"));
 		userDetails.setUsername(user.get("username"));
-		userDetails.setPassword(user.get("password")); 
+		userDetails.setPassword(user.get("password"));
+		userDetails.setEnabled(true);
+		userDetails.setRole("ROLE_USER");
 		if(userDetailsDAO.addUserDetails(userDetails))
 			return "redirect:login?id=3";
 		return "register";

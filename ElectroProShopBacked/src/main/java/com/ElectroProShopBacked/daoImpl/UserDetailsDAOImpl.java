@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ElectroProShopBacked.dao.UserDetailsDAO;
 import com.ElectroProShopBacked.model.UserDetails;
 
-@Repository
+@Repository("userDetailsDAO")
 public class UserDetailsDAOImpl implements UserDetailsDAO {
 	@Autowired
 	SessionFactory sessionFactory;

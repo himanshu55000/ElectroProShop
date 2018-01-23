@@ -3,12 +3,28 @@ package com.ElectroProShopBacked.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 public class UserDetails {
 	@Id
 	private String username; 
-	private String full_name,password,email,address;
+	private String full_name,password,email,address,role;
 	private long mobile;
+	private boolean enabled;
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	public String getUsername() {
 		return username;
 	}
