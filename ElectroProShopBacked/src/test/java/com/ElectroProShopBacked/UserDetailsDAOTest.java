@@ -14,7 +14,7 @@ public class UserDetailsDAOTest{
 	static AnnotationConfigApplicationContext context;
 	
 	@BeforeClass
-	public static void beforeTest(){
+	public static void setup(){
 		context=new AnnotationConfigApplicationContext();
 		context.scan("com");
 		context.refresh();
@@ -40,7 +40,7 @@ public class UserDetailsDAOTest{
 	}
 	
 	@AfterClass
-	public static void afterTest(){
+	public static void tearDown(){
 		context.close();
 	}
 	

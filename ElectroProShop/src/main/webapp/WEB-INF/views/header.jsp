@@ -48,6 +48,7 @@
     </ul>
 	<ul class="nav navbar-nav navbar-right">
        <c:if test='<%=(Boolean)session.getAttribute("loggedIn")!=null&&(Boolean)session.getAttribute("loggedIn")==true%>'>
+          <li><a href="adminHome">Admin Home</a></li>
              <li><a href="<c:url value="/perform_logout"/>">
          <span class="glyphicon glyphicon-log-out"></span> Logout</a></li></c:if>
         <c:if test='<%=(Boolean)session.getAttribute("loggedIn")==null%>'>

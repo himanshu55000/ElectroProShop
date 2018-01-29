@@ -37,6 +37,7 @@ public class DBConfig {
 		LocalSessionFactoryBuilder sessionFactBuilder = new LocalSessionFactoryBuilder(getDataSource());
 		sessionFactBuilder.addProperties(prop);
 		sessionFactBuilder.addAnnotatedClass(UserDetails.class);
+		sessionFactBuilder.addAnnotatedClass(Supplier.class);
 		return sessionFactBuilder.buildSessionFactory();
 	}
 
