@@ -38,6 +38,7 @@ public class DBConfig {
 		sessionFactBuilder.addProperties(prop);
 		sessionFactBuilder.addAnnotatedClass(UserDetails.class);
 		sessionFactBuilder.addAnnotatedClass(Supplier.class);
+		sessionFactBuilder.addAnnotatedClass(Category.class);
 		return sessionFactBuilder.buildSessionFactory();
 	}
 

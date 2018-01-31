@@ -8,7 +8,8 @@
 			</div>
 			<div class="panel-body table-responsive">
 
-<a href="manageSupplier" class="btn btn-success">Supplier</a>
+<a href="addDetailsAdmin" class="btn btn-success">Add Details</a>
+<a href="viewDetailsAdmin" class="btn btn-success">View Details</a>
 
 			</div>
 		</div>
