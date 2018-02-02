@@ -39,6 +39,7 @@ public class DBConfig {
 		sessionFactBuilder.addAnnotatedClass(UserDetails.class);
 		sessionFactBuilder.addAnnotatedClass(Supplier.class);
 		sessionFactBuilder.addAnnotatedClass(Category.class);
+		sessionFactBuilder.addAnnotatedClass(Product.class);
 		return sessionFactBuilder.buildSessionFactory();
 	}
 

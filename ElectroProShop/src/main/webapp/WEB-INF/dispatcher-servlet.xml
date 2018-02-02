@@ -23,4 +23,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springf
    			<value>.jsp</value>
    		</property>
    </bean>
+   
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="3072000" />
+	</bean>
+   
    </beans>
