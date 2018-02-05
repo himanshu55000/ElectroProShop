@@ -1,0 +1,14 @@
+com\ElectroProShopBacked\model\Category.class
+com\ElectroProShopBacked\daoImpl\ProductDAOImpl.class
+com\ElectroProShopBacked\dao\ProductDAO.class
+com\ElectroProShopBacked\daoImpl\CategoryDAOImpl.class
+com\ElectroProShopBacked\model\Product.class
+com\ElectroProShopBacked\dao\SupplierDAO.class
+com\ElectroProShopBacked\model\Supplier.class
+com\ElectroProShopBacked\dao\UserDetailsDAO.class
+com\ElectroProShopBacked\daoImpl\SupplierDAOImpl.class
+com\ElectroProShopBacked\App.class
+com\ElectroProShopBacked\model\UserDetails.class
+com\ElectroProShopBacked\config\DBConfig.class
+com\ElectroProShopBacked\dao\CategoryDAO.class
+com\ElectroProShopBacked\daoImpl\UserDetailsDAOImpl.class

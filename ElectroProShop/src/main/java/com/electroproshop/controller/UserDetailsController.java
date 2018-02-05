@@ -49,19 +49,10 @@ public class UserDetailsController {
 			return "redirect:login?id=3";
 		return "register";
 	}
-	@RequestMapping("/perform_login")
+	@RequestMapping("/login_success")
 	public String perform_login(@RequestParam Map<String,String> user,Model m,HttpSession httpSession) {
-		if(userDetailsDAO.validateUser(user.get("username"),user.get("password"))){
 			httpSession.setAttribute("loggedIn", true);
 			return "redirect:/";
-		}
-		return "redirect:login?id=1";
-	}
-	@RequestMapping("/perform_logout")
-	public String perform_logout(HttpSession httpSession) {
-		httpSession.removeAttribute("loggedIn");
-		httpSession.invalidate();
-		return "redirect:login?id=2";
 	}
 	
 }

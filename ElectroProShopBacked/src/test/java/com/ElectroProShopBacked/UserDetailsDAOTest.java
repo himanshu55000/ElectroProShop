@@ -1,4 +1,4 @@
-package com.ElectroProShopBacked;
+/*package com.ElectroProShopBacked;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -45,3 +45,4 @@ public class UserDetailsDAOTest{
 	}
 	
 }
+*/

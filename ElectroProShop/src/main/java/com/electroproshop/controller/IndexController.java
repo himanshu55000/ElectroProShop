@@ -10,5 +10,10 @@ public class IndexController {
 		return "index";
 	}
 	
+	@RequestMapping("403Error")
+	public String Error(){
+		return "403";
+	}
+	
 	
 }

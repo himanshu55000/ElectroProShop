@@ -122,8 +122,8 @@ public class AdminController {
 		MultipartFile image=product.getProImage();
 		String imgpath=session.getServletContext().getRealPath("/resources/images/");
 		String file_info=imgpath+image.getOriginalFilename()+".jpg";
-		File f=new File(file_info);
 		if(!image.isEmpty()){
+			File f=new File(file_info);
 			try{
 			byte buff[]=image.getBytes();
 			BufferedOutputStream bs=new BufferedOutputStream(new FileOutputStream(f));
@@ -143,6 +143,18 @@ public class AdminController {
 	{	ModelAndView m=new ModelAndView("redirect:viewDetailsAdmin");
 		Product product=productDAO.getProduct(proId);
 		productDAO.deleteProduct(product);
+		return m;
+	}
+
+	@RequestMapping("/updateProduct")
+	public ModelAndView updateProduct(@RequestParam("proId") int proId){
+		ModelAndView m= new ModelAndView("updateProduct");
+		Product product=productDAO.getProduct(proId);
+		List<Supplier> supList=supplierDAO.getAllSupplier();
+		m.addObject("supList",supList);
+		List<Category> catList=categoryDAO.getAllCategory();
+		m.addObject("catList",catList);
+		m.addObject("product",product);
 		return m;
 	}
 }
