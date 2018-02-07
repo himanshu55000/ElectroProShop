@@ -5,7 +5,7 @@
     <div class="modal-content">
       <div class="modal-body" style="padding:50px;border:10px solid green">
 		    <center><h2>Update Category</h2></center><br/>
-			<form id="frm1" action="updateCategory" method="post" class="form-inline">
+			<form id="frm1" action="${e}admin/updateCategory" method="post" class="form-inline">
 			<input name="id" type="hidden"/>
 			<span style="font-size: 20px">Enter Category Name : </span>
 			<input name="name" class="form-control"/><br/><br/>
@@ -21,7 +21,7 @@
     <div class="modal-content">
       <div class="modal-body" style="padding:50px;border:10px solid green">
 			<center><h2>Update Supplier</h2></center><br/>
-			<form id="frm2" action="updateSupplier" method="post" class="form-inline">
+			<form id="frm2" action="${e}admin/updateSupplier" method="post" class="form-inline">
 			<input name="id" type="hidden"/>
 			<span style="font-size: 20px">Enter Supplier Name : </span>
 			<input name="name" class="form-control"/><br/><br/>
@@ -57,9 +57,9 @@
 <tr>
 <td>${product.proId}</td><td>${product.proName}</td><td>${product.proDesc}</td><td>${product.proPrice}</td><td>${product.proQuantity}</td><td>${product.category.categoryName}</td><td>${product.supplier.supplierName}</td>
 <td>
-<a href="<c:url value="updateProduct?proId=${product.proId}"/>" id="update" class="btn btn-success">Update</a>
+<a href="${e}admin/updateProduct?proId=${product.proId}" id="update" class="btn btn-success">Update</a>
 </td><td>
-<a href="<c:url value="deleteProduct?proId=${product.proId}"/>" class="btn btn-danger myBoldFont">Delete</a>
+<a href="${e}admin/deleteProduct?proId=${product.proId}" class="btn btn-danger myBoldFont">Delete</a>
 </td>
 </tr>
 </c:forEach>
@@ -77,7 +77,7 @@
 							<td>${category.cid}</td><td>${category.categoryName}</td>
 							<td>
 								<button onclick="setCatModal(${category.cid},'${category.categoryName}')" class="btn btn-success myBoldFont">Update</button>
-								<a href="<c:url value="deleteCategory?id=${category.cid}"/>" class="btn btn-danger myBoldFont">Delete</a>
+								<a href="${e}admin/deleteCategory?id=${category.cid}" class="btn btn-danger myBoldFont">Delete</a>
 							</td>
 						</tr>
 					</c:forEach>
@@ -95,7 +95,7 @@
 							<td>${supplier.sid}</td><td>${supplier.supplierName}</td>
 							<td>
 								<button onclick="setSupModal(${supplier.sid},'${supplier.supplierName}')" class="btn btn-success myBoldFont">Update</button>
-								<a href="<c:url value="deleteSupplier?id=${supplier.sid}"/>" class="btn btn-danger myBoldFont">Delete</a>
+								<a href="${e}admin/deleteSupplier?id=${supplier.sid}" class="btn btn-danger myBoldFont">Delete</a>
 							</td>
 						</tr>
 					</c:forEach>

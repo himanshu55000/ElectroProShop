@@ -41,12 +41,12 @@ public class AdminController {
 	@Autowired
 	SupplierDAO supplierDAO;
 
-	@RequestMapping("/adminHome")
+	@RequestMapping("/admin/adminHome")
 	public String adminHome(){
 		return "adminHome";
 	}
 	
-	@RequestMapping("/addDetailsAdmin")
+	@RequestMapping("/admin/addDetailsAdmin")
 	public ModelAndView addDetailsAdmin(@ModelAttribute("product") Product product){
 		ModelAndView m= new ModelAndView("addDetailsAdmin");
 		List<Supplier> supList=supplierDAO.getAllSupplier();
@@ -56,7 +56,7 @@ public class AdminController {
 		return m;
 	}
 	
-	@RequestMapping("/viewDetailsAdmin")
+	@RequestMapping("/admin/viewDetailsAdmin")
 	public ModelAndView viewDetailsAdmin(){
 		ModelAndView m=new ModelAndView("viewDetailsAdmin");
 		List<Supplier> supList=supplierDAO.getAllSupplier();
@@ -69,7 +69,7 @@ public class AdminController {
 	}
 
 	
-	@RequestMapping("/addCategory")
+	@RequestMapping("/admin/addCategory")
 	public String addCategory(@RequestParam String name) {
 		category.setCid(0);
 		category.setCategoryName(name);
@@ -77,7 +77,7 @@ public class AdminController {
 		return "redirect:viewDetailsAdmin";
 	}
 	
-	@RequestMapping("/updateCategory")
+	@RequestMapping("/admin/updateCategory")
 	public String updateCategory(@RequestParam int id,@RequestParam String name) {
 		category.setCid(id);
 		category.setCategoryName(name);
@@ -85,14 +85,14 @@ public class AdminController {
 		return "redirect:viewDetailsAdmin";
 	}
 	
-	@RequestMapping("/deleteCategory")
+	@RequestMapping("/admin/deleteCategory")
 	public String deleteCategory(@RequestParam int id) {
 		Category category2=categoryDAO.getCategoryById(id);
 		categoryDAO.deleteCategory(category2);
 		return "redirect:viewDetailsAdmin";
 	}
 	
-	@RequestMapping("/addSupplier")
+	@RequestMapping("/admin/addSupplier")
 	public String addSupplier(@RequestParam String name) {
 		supplier.setSid(0);
 		supplier.setSupplierName(name);
@@ -100,7 +100,7 @@ public class AdminController {
 		return "redirect:viewDetailsAdmin";
 	}
 	
-	@RequestMapping("/updateSupplier")
+	@RequestMapping("/admin/updateSupplier")
 	public String updateSupplier(@RequestParam int id,@RequestParam String name) {
 		supplier.setSid(id);
 		supplier.setSupplierName(name);
@@ -108,14 +108,14 @@ public class AdminController {
 		return "redirect:viewDetailsAdmin";
 	}
 	
-	@RequestMapping("/deleteSupplier")
+	@RequestMapping("/admin/deleteSupplier")
 	public String deleteSupplier(@RequestParam int id) {
 		Supplier supplier2=supplierDAO.getSupplierById(id);
 		supplierDAO.deleteSupplier(supplier2);
 		return "redirect:viewDetailsAdmin";
 	}
 	
-	@RequestMapping(value="/addProduct",method=RequestMethod.POST)
+	@RequestMapping(value="/admin/addProduct",method=RequestMethod.POST)
 	public ModelAndView addProduct(@ModelAttribute("product") Product product,HttpSession session)
 	{	
 		ModelAndView m=new ModelAndView("redirect:viewDetailsAdmin");
@@ -138,7 +138,7 @@ public class AdminController {
 		}
 		return m;
 	}
-	@RequestMapping("/deleteProduct")
+	@RequestMapping("/admin/deleteProduct")
 	public ModelAndView deleteProduct(@RequestParam("proId") int proId)
 	{	ModelAndView m=new ModelAndView("redirect:viewDetailsAdmin");
 		Product product=productDAO.getProduct(proId);
@@ -146,7 +146,7 @@ public class AdminController {
 		return m;
 	}
 
-	@RequestMapping("/updateProduct")
+	@RequestMapping("/admin/updateProduct")
 	public ModelAndView updateProduct(@RequestParam("proId") int proId){
 		ModelAndView m= new ModelAndView("updateProduct");
 		Product product=productDAO.getProduct(proId);

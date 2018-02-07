@@ -1,9 +1,9 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@include file="header.jsp"%>
-<div class="row">
+<br/><div class="row">
 <div class="modal-body col-sm-offset-3 col-sm-6" style="border:10px solid green">
-		    <center><h2>Add Product</h2></center><br/>
-<form:form action="addProduct" modelAttribute="product" class="form-horizontal" enctype="multipart/form-data">
+		    <center><h2>Update Product</h2></center><br/>
+<form:form action="${e}admin/addProduct" modelAttribute="product" class="form-horizontal" enctype="multipart/form-data">
 <div class="form-group">
 <label class="control-label col-sm-5 " for="catName">Category</label>
 <div class="col-sm-7">
@@ -51,9 +51,9 @@
 <div class="col-sm-6">
 <input type="submit" value="save" class="btn btn-success btn-block "/></div>
 <div class="col-sm-6">
-<a href="Product" class="btn btn-danger btn-block ">Cancel</a></div><br/>
+<a href="${e}admin/viewDetailsAdmin" class="btn btn-danger btn-block ">Cancel</a></div><br/>
 </form:form>
      </div>
 </div>
-<%@include file="footer.jsp"%>
+<br/><%@include file="footer.jsp"%>
      

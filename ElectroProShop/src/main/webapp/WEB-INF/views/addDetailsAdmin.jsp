@@ -19,7 +19,7 @@
     <br/>
    <div class="modal-body col-sm-offset-3 col-sm-6" style="border:10px solid green">
 		    <center><h2>Add Product</h2></center><br/>
-<form:form action="addProduct" modelAttribute="product" class="form-horizontal" enctype="multipart/form-data">
+<form:form action="${e}admin/addProduct" modelAttribute="product" class="form-horizontal" enctype="multipart/form-data">
 <div class="form-group">
 <label class="control-label col-sm-5 " for="catName">Category</label>
 <div class="col-sm-7">
@@ -75,7 +75,7 @@
   <br/>
    <div class="modal-body col-sm-offset-3 col-sm-6" style="border:10px solid green">
 		    <center><h2>Add Category</h2></center><br/>
-			<form action="addCategory" method="post" class="form-inline">
+			<form action="${e}admin/addCategory" method="post" class="form-inline">
 			<label style="font-size: 20px">Enter Category Name : </label>
 			<input name="name" class="form-control"/><br/><br/><br/>
 			<button type="submit" class="btn btn-success btn-block">Add</button>
@@ -86,7 +86,7 @@
 <br/>
    <div class="modal-body col-sm-offset-3 col-sm-6" style="border:10px solid green">
 		    <center><h2>Add Supplier</h2></center><br/>
-			<form action="addSupplier" method="post" class="form-inline">
+			<form action="${e}admin/addSupplier" method="post" class="form-inline">
 			<label style="font-size: 20px">Enter Supplier Name : </label>
 			<input name="name" class="form-control"/><br/><br/><br/>
 			<button type="submit" class="btn btn-success btn-block">Add</button>

@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
@@ -48,10 +49,16 @@
      --></ul>
 	<ul class="nav navbar-nav navbar-right">
        <c:if test='<%=(Boolean)session.getAttribute("loggedIn")!=null&&(Boolean)session.getAttribute("loggedIn")==true%>'>
-          <li><a href="addDetailsAdmin">Add Details</a></li>
-		<li><a href="viewDetailsAdmin">View Details</a></li>
+        <sec:authentication var="user" property="principal" />
+          <c:if test="${user.authorities=='[ROLE_ADMIN]'}">
+          <li><a href="${e}admin/addDetailsAdmin">Add Details</a></li>
+		<li><a href="${e}admin/viewDetailsAdmin">View Details</a></li>
+	</c:if>
+	<li><a>Welcome ${user.username}</a></li>   
    <li><a href="<c:url value="/perform_logout"/>">
-         <span class="glyphicon glyphicon-log-out"></span> Logout</a></li></c:if>
+         <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+         
+         </c:if>
         <c:if test='<%=(Boolean)session.getAttribute("loggedIn")==null%>'>
  <li><a href="${e}register"><span class="fa fa-user"></span> Register</a></li>
       <li><a href="${e}login"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
