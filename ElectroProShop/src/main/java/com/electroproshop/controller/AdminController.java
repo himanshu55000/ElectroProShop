@@ -121,7 +121,7 @@ public class AdminController {
 		ModelAndView m=new ModelAndView("redirect:viewDetailsAdmin");
 		MultipartFile image=product.getProImage();
 		String imgpath=session.getServletContext().getRealPath("/resources/images/");
-		String file_info=imgpath+image.getOriginalFilename()+".jpg";
+		String file_info=imgpath+image.getOriginalFilename();
 		if(!image.isEmpty()){
 			File f=new File(file_info);
 			try{
@@ -135,6 +135,10 @@ public class AdminController {
 			catch(Exception e){
 				System.out.println("Exception");
 			}
+		}
+		else{
+			productDAO.insertOrUpdateProduct(product);
+			
 		}
 		return m;
 	}

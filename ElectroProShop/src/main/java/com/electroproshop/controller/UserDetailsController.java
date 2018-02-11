@@ -1,5 +1,6 @@
 package com.electroproshop.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -10,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ElectroProShopBacked.dao.CategoryDAO;
 import com.ElectroProShopBacked.dao.UserDetailsDAO;
+import com.ElectroProShopBacked.model.Category;
 import com.ElectroProShopBacked.model.UserDetails;
 
 @Controller
@@ -19,6 +22,9 @@ public class UserDetailsController {
 	UserDetails userDetails;
 	@Autowired
 	UserDetailsDAO userDetailsDAO;
+	@Autowired
+	CategoryDAO categoryDAO;
+
 	@RequestMapping("/login")
 	public String login(@RequestParam(value="id",required=false) String id,Model m) {
 		if(id!=null){
@@ -51,6 +57,8 @@ public class UserDetailsController {
 	}
 	@RequestMapping("/login_success")
 	public String perform_login(@RequestParam Map<String,String> user,Model m,HttpSession httpSession) {
+			List<Category> catList=categoryDAO.getAllCategory();
+			httpSession.setAttribute("categoryList",catList);
 			httpSession.setAttribute("loggedIn", true);
 			return "redirect:/";
 	}
