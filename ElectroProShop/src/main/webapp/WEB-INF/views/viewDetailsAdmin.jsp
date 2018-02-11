@@ -1,4 +1,25 @@
 <%@include file="header.jsp"%>
+	<c:if test="${warning!=null}">
+  <div class="modal" id="warningModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-center" style="background: #afa">
+         <h1>Warning!!!!!</h1>
+        </div>
+        <div class="modal-body text-center">
+          <h2><b>${warning}</b></h2>
+        </div>
+		<div class="modal-footer">
+          <a href="${e}admin/viewDetailsAdmin" class="btn btn-danger btn-block myBoldFont">Close</a>
+        </div>
+      </div>
+     </div>
+  </div>
+  <script>
+  $('#warningModal').modal("show");
+  </script>
+  </c:if>
+
 <br/><br/>
 <div id="catModal" class="modal fade" role="dialog">
   <div class="modal-dialog">

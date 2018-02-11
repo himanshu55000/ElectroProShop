@@ -25,6 +25,7 @@
 <form:textarea path="proDesc" class="form-control" id="proDesc" required="required" maxlength="255"/>
 </div></div>
 <form:hidden path="proId"/>
+<form:hidden path="imageName"/>
 <div class="form-group">
 <label class="control-label col-sm-5 " for="proImage">Upload image</label>
 <div class="col-sm-7">

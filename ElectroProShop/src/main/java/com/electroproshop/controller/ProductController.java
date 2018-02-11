@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ElectroProShopBacked.dao.CategoryDAO;
+import com.ElectroProShopBacked.dao.ProductDAO;
 import com.ElectroProShopBacked.model.Product;
 
 @Controller
@@ -15,6 +16,8 @@ public class ProductController {
 	
 	@Autowired
 	CategoryDAO categoryDAO;
+	@Autowired
+	ProductDAO productDAO;
 	
 	@RequestMapping("/products/{cid}")
 	public ModelAndView viewProductsByCat(@PathVariable int cid)
@@ -22,5 +25,11 @@ public class ProductController {
 		m.addObject("products",categoryDAO.getCategoryById(cid));
 		return m;
 	}
-
+	
+	@RequestMapping("/productDetails/{id}")
+	public ModelAndView productDetails(@PathVariable int id)
+	{	ModelAndView m=new ModelAndView("productDetails");
+		m.addObject("product",productDAO.getProduct(id));
+		return m;
+	}
 }

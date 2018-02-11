@@ -28,13 +28,13 @@ import com.ElectroProShopBacked.model.Supplier;
 public class AdminController {
 	@Autowired
 	Category category;
-	
+
 	@Autowired
 	CategoryDAO categoryDAO;
-	
+
 	@Autowired
 	ProductDAO productDAO;
-	
+
 	@Autowired
 	Supplier supplier;
 
@@ -42,33 +42,32 @@ public class AdminController {
 	SupplierDAO supplierDAO;
 
 	@RequestMapping("/admin/adminHome")
-	public String adminHome(){
+	public String adminHome() {
 		return "adminHome";
 	}
-	
+
 	@RequestMapping("/admin/addDetailsAdmin")
-	public ModelAndView addDetailsAdmin(@ModelAttribute("product") Product product){
-		ModelAndView m= new ModelAndView("addDetailsAdmin");
-		List<Supplier> supList=supplierDAO.getAllSupplier();
-		m.addObject("supList",supList);
-		List<Category> catList=categoryDAO.getAllCategory();
-		m.addObject("catList",catList);
-		return m;
-	}
-	
-	@RequestMapping("/admin/viewDetailsAdmin")
-	public ModelAndView viewDetailsAdmin(){
-		ModelAndView m=new ModelAndView("viewDetailsAdmin");
-		List<Supplier> supList=supplierDAO.getAllSupplier();
-		m.addObject("supList",supList);
-		List<Category> catList=categoryDAO.getAllCategory();
-		m.addObject("catList",catList);
-		List<Product> proList=productDAO.getAllProduct();
-		m.addObject("proList",proList);
+	public ModelAndView addDetailsAdmin(@ModelAttribute("product") Product product) {
+		ModelAndView m = new ModelAndView("addDetailsAdmin");
+		List<Supplier> supList = supplierDAO.getAllSupplier();
+		m.addObject("supList", supList);
+		List<Category> catList = categoryDAO.getAllCategory();
+		m.addObject("catList", catList);
 		return m;
 	}
 
-	
+	@RequestMapping("/admin/viewDetailsAdmin")
+	public ModelAndView viewDetailsAdmin() {
+		ModelAndView m = new ModelAndView("viewDetailsAdmin");
+		List<Supplier> supList = supplierDAO.getAllSupplier();
+		m.addObject("supList", supList);
+		List<Category> catList = categoryDAO.getAllCategory();
+		m.addObject("catList", catList);
+		List<Product> proList = productDAO.getAllProduct();
+		m.addObject("proList", proList);
+		return m;
+	}
+
 	@RequestMapping("/admin/addCategory")
 	public String addCategory(@RequestParam String name) {
 		category.setCid(0);
@@ -76,22 +75,28 @@ public class AdminController {
 		categoryDAO.addCategory(category);
 		return "redirect:viewDetailsAdmin";
 	}
-	
+
 	@RequestMapping("/admin/updateCategory")
-	public String updateCategory(@RequestParam int id,@RequestParam String name) {
+	public String updateCategory(@RequestParam int id, @RequestParam String name) {
 		category.setCid(id);
 		category.setCategoryName(name);
 		categoryDAO.updateCategory(category);
 		return "redirect:viewDetailsAdmin";
 	}
-	
+
 	@RequestMapping("/admin/deleteCategory")
-	public String deleteCategory(@RequestParam int id) {
-		Category category2=categoryDAO.getCategoryById(id);
-		categoryDAO.deleteCategory(category2);
-		return "redirect:viewDetailsAdmin";
+	public ModelAndView deleteCategory(@RequestParam int id) {
+		ModelAndView m = new ModelAndView("redirect:viewDetailsAdmin");
+		Category category2 = categoryDAO.getCategoryById(id);
+		try {
+			categoryDAO.deleteCategory(category2);
+		} catch (Exception e) {
+			m.addObject("warning", "Remove the associated product first!!!");
+			m.setViewName("viewDetailsAdmin");
+		}
+		return m;
 	}
-	
+
 	@RequestMapping("/admin/addSupplier")
 	public String addSupplier(@RequestParam String name) {
 		supplier.setSid(0);
@@ -99,66 +104,75 @@ public class AdminController {
 		supplierDAO.addSupplier(supplier);
 		return "redirect:viewDetailsAdmin";
 	}
-	
+
 	@RequestMapping("/admin/updateSupplier")
-	public String updateSupplier(@RequestParam int id,@RequestParam String name) {
+	public String updateSupplier(@RequestParam int id, @RequestParam String name) {
 		supplier.setSid(id);
 		supplier.setSupplierName(name);
 		supplierDAO.updateSupplier(supplier);
 		return "redirect:viewDetailsAdmin";
 	}
-	
+
 	@RequestMapping("/admin/deleteSupplier")
-	public String deleteSupplier(@RequestParam int id) {
-		Supplier supplier2=supplierDAO.getSupplierById(id);
-		supplierDAO.deleteSupplier(supplier2);
-		return "redirect:viewDetailsAdmin";
-	}
-	
-	@RequestMapping(value="/admin/addProduct",method=RequestMethod.POST)
-	public ModelAndView addProduct(@ModelAttribute("product") Product product,HttpSession session)
-	{	
-		ModelAndView m=new ModelAndView("redirect:viewDetailsAdmin");
-		MultipartFile image=product.getProImage();
-		String imgpath=session.getServletContext().getRealPath("/resources/images/");
-		String file_info=imgpath+image.getOriginalFilename();
-		if(!image.isEmpty()){
-			File f=new File(file_info);
-			try{
-			byte buff[]=image.getBytes();
-			BufferedOutputStream bs=new BufferedOutputStream(new FileOutputStream(f));
-			bs.write(buff);
-			bs.close();
-			product.setImageName(image.getOriginalFilename());
-			productDAO.insertOrUpdateProduct(product);
-			}
-			catch(Exception e){
-				System.out.println("Exception");
-			}
-		}
-		else{
-			productDAO.insertOrUpdateProduct(product);
-			
+	public ModelAndView deleteSupplier(@RequestParam int id) {
+		ModelAndView m = new ModelAndView("redirect:viewDetailsAdmin");
+		Supplier supplier2 = supplierDAO.getSupplierById(id);
+		try {
+			supplierDAO.deleteSupplier(supplier2);
+		} catch (Exception e) {
+			m.addObject("warning", "Remove the associated product first!!!");
+			m.setViewName("viewDetailsAdmin");
 		}
 		return m;
 	}
+
+	@RequestMapping(value = "/admin/addProduct", method = RequestMethod.POST)
+	public ModelAndView addProduct(@ModelAttribute("product") Product product, HttpSession session) {
+		ModelAndView m = new ModelAndView("redirect:viewDetailsAdmin");
+		MultipartFile image = product.getProImage();
+		String imgpath = session.getServletContext().getRealPath("/resources/images/");
+		String file_info = imgpath + image.getOriginalFilename();
+		if (!image.isEmpty()) {
+			File f = new File(file_info);
+			try {
+				byte buff[] = image.getBytes();
+				BufferedOutputStream bs = new BufferedOutputStream(new FileOutputStream(f));
+				bs.write(buff);
+				bs.close();
+				product.setImageName(image.getOriginalFilename());
+				productDAO.insertOrUpdateProduct(product);
+			} catch (Exception e) {
+				System.out.println("Exception");
+			}
+		} else {
+			productDAO.insertOrUpdateProduct(product);
+
+		}
+		return m;
+	}
+
 	@RequestMapping("/admin/deleteProduct")
-	public ModelAndView deleteProduct(@RequestParam("proId") int proId)
-	{	ModelAndView m=new ModelAndView("redirect:viewDetailsAdmin");
-		Product product=productDAO.getProduct(proId);
-		productDAO.deleteProduct(product);
+	public ModelAndView deleteProduct(@RequestParam("proId") int proId) {
+		ModelAndView m = new ModelAndView("redirect:viewDetailsAdmin");
+		Product product = productDAO.getProduct(proId);
+		try {
+			productDAO.deleteProduct(product);
+		} catch (Exception e) {
+			m.addObject("warning", "You cannot delete this product!!!");
+			m.setViewName("viewDetailsAdmin");
+		}
 		return m;
 	}
 
 	@RequestMapping("/admin/updateProduct")
-	public ModelAndView updateProduct(@RequestParam("proId") int proId){
-		ModelAndView m= new ModelAndView("updateProduct");
-		Product product=productDAO.getProduct(proId);
-		List<Supplier> supList=supplierDAO.getAllSupplier();
-		m.addObject("supList",supList);
-		List<Category> catList=categoryDAO.getAllCategory();
-		m.addObject("catList",catList);
-		m.addObject("product",product);
+	public ModelAndView updateProduct(@RequestParam("proId") int proId) {
+		ModelAndView m = new ModelAndView("updateProduct");
+		Product product = productDAO.getProduct(proId);
+		List<Supplier> supList = supplierDAO.getAllSupplier();
+		m.addObject("supList", supList);
+		List<Category> catList = categoryDAO.getAllCategory();
+		m.addObject("catList", catList);
+		m.addObject("product", product);
 		return m;
 	}
 }
