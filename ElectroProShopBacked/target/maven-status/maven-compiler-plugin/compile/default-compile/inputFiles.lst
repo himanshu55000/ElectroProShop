@@ -1,4 +1,5 @@
 C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\dao\CategoryDAO.java
+C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\model\Orders.java
 C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\model\Product.java
 C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\model\Supplier.java
 C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\daoImpl\CategoryDAOImpl.java
@@ -10,5 +11,8 @@ C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\El
 C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\dao\UserDetailsDAO.java
 C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\dao\ProductDAO.java
 C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\config\DBConfig.java
+C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\daoImpl\CartDAOImpl.java
 C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\daoImpl\ProductDAOImpl.java
+C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\dao\CartDAO.java
+C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\model\Cart.java
 C:\Users\MY LAPY\Documents\Dt Training\ElectroProShopBacked\src\main\java\com\ElectroProShopBacked\model\Category.java
