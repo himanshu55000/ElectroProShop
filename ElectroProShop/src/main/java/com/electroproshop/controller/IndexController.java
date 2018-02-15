@@ -9,6 +9,10 @@ public class IndexController {
 	public String index(){
 		return "index";
 	}
+	@RequestMapping("/aboutUs")
+	public String aboutUs(){
+		return "aboutUs";
+	}
 	
 	@RequestMapping("403Error")
 	public String Error(){

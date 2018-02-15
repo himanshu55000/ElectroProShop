@@ -33,7 +33,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="#">Home</a>
+      <a class="navbar-brand" href="${e}">ElectroProShop</a>
     </div>
     <div class="collapse navbar-collapse" id="homeNav">
      <ul class="nav navbar-nav">
@@ -45,8 +45,10 @@
           					<c:forEach items="${sessionScope.categoryList}" var="cat">
 					<li><a href="${e}products/${cat.cid}">${cat.categoryName}</a></li>		
 					</c:forEach>
+					
         </ul>
       </li></c:if>
+      <li><a href="${e}aboutUs">About Us</a></li>		
      </ul>
 	<ul class="nav navbar-nav navbar-right">
        <c:if test='<%=(Boolean)session.getAttribute("loggedIn")!=null&&(Boolean)session.getAttribute("loggedIn")==true%>'>
@@ -57,6 +59,9 @@
 	</c:if>
 	<li><a href="${e}cart">
       <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;Cart</a>
+      </li> 
+	<li><a href="${e}myOrders">
+      My Orders</a>
       </li> 
 	<li><a>Welcome ${user.username}</a></li>   
    <li><a href="<c:url value="/perform_logout"/>">

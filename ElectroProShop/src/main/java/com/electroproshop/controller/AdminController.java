@@ -69,11 +69,13 @@ public class AdminController {
 	}
 
 	@RequestMapping("/admin/addCategory")
-	public String addCategory(@RequestParam String name) {
+	public String addCategory(@RequestParam String name,HttpSession httpSession) {
 		category.setCid(0);
 		category.setCategoryName(name);
 		categoryDAO.addCategory(category);
-		return "redirect:viewDetailsAdmin";
+		List<Category> catList=categoryDAO.getAllCategory();
+		httpSession.setAttribute("categoryList",catList);
+	return "redirect:viewDetailsAdmin";
 	}
 
 	@RequestMapping("/admin/updateCategory")
@@ -85,11 +87,13 @@ public class AdminController {
 	}
 
 	@RequestMapping("/admin/deleteCategory")
-	public ModelAndView deleteCategory(@RequestParam int id) {
+	public ModelAndView deleteCategory(@RequestParam int id,HttpSession httpSession) {
 		ModelAndView m = new ModelAndView("redirect:viewDetailsAdmin");
 		Category category2 = categoryDAO.getCategoryById(id);
 		try {
 			categoryDAO.deleteCategory(category2);
+			List<Category> catList=categoryDAO.getAllCategory();
+			httpSession.setAttribute("categoryList",catList);
 		} catch (Exception e) {
 			m.addObject("warning", "Remove the associated product first!!!");
 			m.setViewName("viewDetailsAdmin");

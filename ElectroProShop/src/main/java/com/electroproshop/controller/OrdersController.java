@@ -47,10 +47,11 @@ public class OrdersController {
 		UserDetails userDetails=new UserDetails();
 		userDetails.setUsername(SecurityContextHolder.getContext().getAuthentication().getName());
 		orders.setOrderUserDetails(userDetails);
-		orders.setOrderId((long)Math.random()*100000000);
+		orders.setOrderId((long)(Math.random()*100000000));
 		List<Cart> list=cartDAO.getCartByUser(SecurityContextHolder.getContext().getAuthentication().getName());
 		for(Cart c:list){
 			orders.setId(0);
+			orders.setOrderProductId(c.getCartProductId());
 			orders.setOrderImage(c.getCartImage());
 			orders.setOrderPrice(c.getCartPrice()*c.getCartQuantity());
 			orders.setOrderQuantity(c.getCartQuantity());
@@ -61,6 +62,4 @@ public class OrdersController {
 		}
 		return m;
 	}
-	
-
 }

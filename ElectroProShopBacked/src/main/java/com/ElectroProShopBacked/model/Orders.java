@@ -14,6 +14,7 @@ public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	private int orderProductId;
 	@OneToOne(fetch=FetchType.LAZY)
 	private UserDetails orderUserDetails;
 	@OneToOne
@@ -25,6 +26,12 @@ public class Orders {
 	private String payMode;
 	private long orderId;
 	
+	public int getOrderProductId() {
+		return orderProductId;
+	}
+	public void setOrderProductId(int orderProductId) {
+		this.orderProductId = orderProductId;
+	}
 	public ShippingAddress getShippingAddress() {
 		return shippingAddress;
 	}
