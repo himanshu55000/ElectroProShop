@@ -6,10 +6,12 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -131,8 +133,12 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/admin/addProduct", method = RequestMethod.POST)
-	public ModelAndView addProduct(@ModelAttribute("product") Product product, HttpSession session) {
+	public ModelAndView addProduct(@ModelAttribute("product") @Valid Product product, BindingResult result, HttpSession session) {
 		ModelAndView m = new ModelAndView("redirect:viewDetailsAdmin");
+		if (result.hasErrors()) {
+	        m.setViewName("addDetailsAdmin"); 
+			return m;
+	      }
 		MultipartFile image = product.getProImage();
 		String imgpath = session.getServletContext().getRealPath("/resources/images/");
 		String file_info = imgpath + image.getOriginalFilename();

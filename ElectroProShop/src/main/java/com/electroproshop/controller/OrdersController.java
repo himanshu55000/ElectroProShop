@@ -34,9 +34,14 @@ public class OrdersController {
 		m.addObject("orderList", list);
 		return m;
 	}
+	@RequestMapping("/thankYou")
+	public ModelAndView thankYou() {
+		ModelAndView m = new ModelAndView("ThankYou");
+		return m;
+	}
 	@RequestMapping(value="/placeOrder",method=RequestMethod.POST)
 	public ModelAndView placeOrder(@RequestParam Map<String,String> data) {
-		ModelAndView m = new ModelAndView("redirect:/myOrders");
+		ModelAndView m = new ModelAndView("redirect:/thankYou");
 		ShippingAddress shippingAddress=new ShippingAddress();
 		shippingAddress.setHouse_locality(data.get("locality"));
 		shippingAddress.setCity(data.get("city"));

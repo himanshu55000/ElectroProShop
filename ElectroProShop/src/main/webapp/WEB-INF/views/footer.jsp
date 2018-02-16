@@ -1,21 +1,21 @@
 <footer>
-<style>a{color: white}</style>
+<style>.a{color: white}</style>
 <div class="container-fluid" style="padding-top:20px;padding-bottom:20px;background:#000066;font-size:25px;color:white">
 <div class="col-sm-6 col-md-3">
 				<h3>Information</h3>
 				<ul class="foot-info">
-					<li><a href="${e}aboutUs">FAQ's</a></li>
-					<li><a href="${e}aboutUs">About Us</a></li>
-					<li><a href="${e}products/39">Best Deals</a></li>
-					<li><a href="${e}aboutUs">Services</a></li>
+					<li><a class="a" href="${e}aboutUs">FAQ's</a></li>
+					<li><a class="a" href="${e}aboutUs">About Us</a></li>
+					<li><a class="a" href="${e}products/39">Best Deals</a></li>
+					<li><a class="a" href="${e}aboutUs">Services</a></li>
 				</ul></div>
 				<div class="col-sm-6 col-md-3">
 				<h3>Top Category</h3>
 				<ul class="foot-info">
-					<li><a href="${e}products/39">Business Laptops</a></li>
-					<li><a href="${e}products/39">Intex</a></li>
-					<li><a href="${e}products/39">Mouse</a></li>
-					<li><a href="${e}products/39">Full HD TVs</a></li>
+					<li><a class="a" href="${e}products/39">Business Laptops</a></li>
+					<li><a class="a" href="${e}products/39">Intex</a></li>
+					<li><a class="a" href="${e}products/39">Mouse</a></li>
+					<li><a class="a" href="${e}products/39">Full HD TVs</a></li>
 				</ul></div>
 				<div class="col-sm-6 col-md-3">
 				<h3>&nbsp;&nbsp;&nbsp;Contact Us</h3>

@@ -31,7 +31,7 @@ Our Product come from a verified supplier with warranty.
 </div></div>
 <div class="col-sm-4" >
 <div class="thumbnail contactBox" style="background-color:black;padding-top:2em;">
-<span class="glyphicon glyphicon-envelope" style="font-size:6em"></span><br/> <span style="font-size:1.45em">myshoppro@example.com</span>
+<span class="glyphicon glyphicon-envelope" style="font-size:6em"></span><br/> <span style="font-size:1.45em">test@test.com</span>
 </div></div>
 <div class="col-sm-4" >
 <div class="thumbnail contactBox" style="background-color:black;padding-top:2em;">

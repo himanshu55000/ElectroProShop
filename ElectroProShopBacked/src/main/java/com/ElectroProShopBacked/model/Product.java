@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,17 +22,26 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int proId;
-	private String proName, proDesc;
+	@NotEmpty(message="Can't Be blank")
+	@Size(max = 50, min = 3, message = "Name should be between 3 to 50 characters")
+	private String proName; 
+	@NotNull(message="Can't Be blank")
+	private String proDesc;
+	@NotNull(message="Can't Be blank")
 	private int proQuantity;
+	@NotNull(message="Can't Be blank")
 	private Float proPrice;
+	@NotNull(message="Choose One")
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="sid")
 	private Supplier supplier;
+	@NotNull(message="Choose One")
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="cid")
 	private Category category;
 	
 	@Transient
+	@NotNull(message="Choose a Image")
 	private MultipartFile proImage;
 	
 	private String imageName;

@@ -1,6 +1,11 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@include file="header.jsp"%>
 <br/><br/>
+<style type="text/css">
+.error {
+	color: red;
+}
+</style>
 <div class="container">
 	<div class="panel-group">
 		<div class="panel panel-primary">
@@ -8,7 +13,7 @@
 						<span style="font-size: 30px">Add Details</span>
 			</div>
 			<div class="panel-body table-responsive">
-<ul class="nav nav-tabs nav-justified">
+<ul class="nav nav-tabs nav-pills nav-justified">
   <li class="active"><a data-toggle="tab" href="#product"><h3>Add Product</h3></a></li>
   <li><a data-toggle="tab" href="#category"><h3>Add Category</h3></a></li>
   <li><a data-toggle="tab" href="#supplier"><h3>Add Supplier</h3></a></li>
@@ -29,32 +34,38 @@
 					<form:option value="${cat.cid}">${cat.categoryName}</form:option>		
 					</c:forEach>
 </form:select>
-</div></div>
+ <form:errors path="category.cid" cssClass="error" />
+         </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 " for="proName">Product Name</label>
 <div class="col-sm-7">
 <form:input path="proName" class="form-control" id="proName"  required="required"/>
-</div></div>
+ <form:errors path="proName" cssClass="error" />
+ </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 " for="proDesc">Product description</label>
 <div class="col-sm-7">
 <form:textarea path="proDesc" class="form-control" id="proDesc" required="required" maxlength="255"/>
-</div></div>
+ <form:errors path="proDesc" cssClass="error" />
+         </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 " for="proImage">Upload image</label>
 <div class="col-sm-7">
 <form:input type="file" path="proImage" class="form-control" id="proImage"/>
-</div></div>
+ <form:errors path="proImage" cssClass="error" />
+         </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 " for="proPrice">Product Price</label>
 <div class="col-sm-7">
 <form:input path="proPrice" class="form-control" id="proPrice" pattern="[1-9]+[0-9]*" title="Price cannot be zero or start with zero"/>
-</div></div>
+ <form:errors path="proPrice" cssClass="error" />
+         </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 " for="proQuantity">Product Quantity</label>
 <div class="col-sm-7">
 <form:input path="proQuantity" class="form-control" id="proQuantity" pattern="[1-9]+[0-9]*" title="Quantity cannot be zero or start with zero"/>
-</div></div>
+ <form:errors path="proQuantity" cssClass="error" />
+         </div></div>
 <div class="form-group"><label class="control-label col-sm-5 " for="supName">Supplier</label>
 <div class="col-sm-7">
 <form:select path="supplier.sid" class="form-control" id="supName" required="required">
@@ -63,11 +74,11 @@
 <form:option value="${sup.sid}">${sup.supplierName}</form:option>
 </c:forEach>
 </form:select>
-</div></div>
-<div class="col-sm-6">
+ <form:errors path="supplier.sid" cssClass="error" />
+         </div></div>
+<div class="col-sm-12">
 <input type="submit" value="save" class="btn btn-success btn-block "/></div>
-<div class="col-sm-6">
-<a href="Product" class="btn btn-danger btn-block ">Cancel</a></div><br/>
+<br/>
 </form:form>
      </div>
   </div>

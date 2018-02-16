@@ -61,7 +61,7 @@
 						<span style="font-size: 30px">View Details</span>
 			</div>
 			<div class="panel-body table-responsive">
-<ul class="nav nav-tabs nav-justified">
+<ul class="nav nav-pills nav-justified">
   <li class="active"><a data-toggle="tab" href="#product"><h3>Product</h3></a></li>
   <li><a data-toggle="tab" href="#category"><h3>Category</h3></a></li>
   <li><a data-toggle="tab" href="#supplier"><h3>Supplier</h3></a></li>
@@ -70,7 +70,7 @@
 <div class="tab-content">
   <div id="product" class="tab-pane fade in active">
     <br/>
-   <div class="modal-body col-sm-offset-1 col-sm-10" style="border:10px solid green">
+   <div class="modal-body col-sm-offset-1 col-sm-10 table-responsive" style="border:10px solid green">
 		    <center><h2>Product Details</h2></center><br/>
 		    <div class="input-group">
         <input type="text" class="form-control" placeholder="Search" id="searchProduct" onkeyup="searchProduct()">
@@ -82,10 +82,12 @@
   </select>        </div>
       </div>
 <table class="table table-hover myFont" id="productTable">
-<tr><th>Product Id</th><th>Product Name</th><th>Product Description</th><th>Price</th><th>Product Quantity</th><th>Category</th><th>Supplier</th><th colspan="2">Operation</th></tr>
+<tr><th>Product Image</th><th>Product Name</th><th>Product Description</th><th>Price</th><th>Product Quantity</th><th>Category</th><th>Supplier</th><th colspan="2">Operation</th></tr>
 <c:forEach items="${proList}" var="product">
 <tr>
-<td>${product.proId}</td><td>${product.proName}</td><td>${product.proDesc}</td><td>${product.proPrice}</td><td>${product.proQuantity}</td><td>${product.category.categoryName}</td><td>${product.supplier.supplierName}</td>
+<td>
+<img src="${e}resources/images/${product.imageName}" height="150"/></td>
+<td>${product.proName}</td><td>${product.proDesc}</td><td>${product.proPrice}</td><td>${product.proQuantity}</td><td>${product.category.categoryName}</td><td>${product.supplier.supplierName}</td>
 <td>
 <a href="${e}admin/updateProduct?proId=${product.proId}" id="update" class="btn btn-success">Update</a>
 </td><td>
