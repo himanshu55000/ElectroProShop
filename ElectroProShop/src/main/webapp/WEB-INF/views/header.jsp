@@ -57,14 +57,14 @@
           <li><a href="${e}admin/addDetailsAdmin">Add Details</a></li>
 		<li><a href="${e}admin/viewDetailsAdmin">View Details</a></li>
 	</c:if>
-	<li><a href="${e}cart">
+	<li><a href="${e}user/cart">
       <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;Cart</a>
       </li> 
-	<li><a href="${e}myOrders">
+	<li><a href="${e}user/myOrders">
       My Orders</a>
       </li> 
 	<li><a>Welcome ${user.username}</a></li>   
-   <li><a href="<c:url value="/perform_logout"/>">
+   <li><a href="${e}perform_logout">
          <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
          
          </c:if>

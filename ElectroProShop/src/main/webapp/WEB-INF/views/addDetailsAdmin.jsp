@@ -88,7 +88,7 @@
 		    <center><h2>Add Category</h2></center><br/>
 			<form action="${e}admin/addCategory" method="post" class="form-inline">
 			<label style="font-size: 20px">Enter Category Name : </label>
-			<input name="name" class="form-control"/><br/><br/><br/>
+			<input name="name" class="form-control" required pattern="[A-Za-z]{3,}[ ]*[A-Za-z]*" title="Name should contain at least 3 character"/><br/><br/><br/>
 			<button type="submit" class="btn btn-success btn-block">Add</button>
 			</form>
       </div>
@@ -99,7 +99,7 @@
 		    <center><h2>Add Supplier</h2></center><br/>
 			<form action="${e}admin/addSupplier" method="post" class="form-inline">
 			<label style="font-size: 20px">Enter Supplier Name : </label>
-			<input name="name" class="form-control"/><br/><br/><br/>
+			<input name="name" class="form-control"  required pattern="[A-Za-z]{3,}[ ]*[A-Za-z]*" title="Name should contain at least 3 character"/><br/><br/><br/>
 			<button type="submit" class="btn btn-success btn-block">Add</button>
 			</form>
       </div>

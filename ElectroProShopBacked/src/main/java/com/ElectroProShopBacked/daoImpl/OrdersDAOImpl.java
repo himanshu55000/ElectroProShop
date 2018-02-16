@@ -23,10 +23,11 @@ public class OrdersDAOImpl implements OrdersDAO{
 	
 
 	@Transactional
-	public void insertOrders(Orders orders)
+	public boolean insertOrders(Orders orders)
 	{
 		Session session=sessionFactory.getCurrentSession();
 		session.save(orders);
+		return true;
 	}
 		
 	public List<Orders> getOrdersByUser(String username)
@@ -39,9 +40,10 @@ public class OrdersDAOImpl implements OrdersDAO{
 
 
 	@Transactional
-	public void insertShippingAddress(ShippingAddress address) {
+	public boolean insertShippingAddress(ShippingAddress address) {
 		Session session=sessionFactory.getCurrentSession();
 		session.save(address);
+		return true;
 	}
 	
 }

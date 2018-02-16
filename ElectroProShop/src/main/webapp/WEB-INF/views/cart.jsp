@@ -21,15 +21,15 @@
     <div class="row">
     <div class="col-sm-4">
     Quantity : 
-     <div class="btn-group"><a href="updateCart/${cartItem.cartId}/-" class="btn btn-warning">
+     <div class="btn-group"><a href="${e}user/updateCart/${cartItem.cartId}/-" class="btn btn-warning">
     <span class="glyphicon glyphicon-minus"></span></a><span class="btn">${cartItem.cartQuantity}</span>
-    <a href="updateCart/${cartItem.cartId}/+" class="btn btn-warning">
+    <a href="${e}user/updateCart/${cartItem.cartId}/+" class="btn btn-warning">
     <span class="glyphicon glyphicon-plus"></span></a>
     </div>
     </div>
     <div class="col-sm-1"><span>&nbsp;</span></div>
   
-    <div class="col-sm-4"><a href="deleteCart/${cartItem.cartId}" class="btn btn-danger btn-block">Remove</a>
+    <div class="col-sm-4"><a href="${e}user/deleteCart/${cartItem.cartId}" class="btn btn-danger btn-block">Remove</a>
         </div></div>
     </td></tr>
 </c:forEach><tr><td colspan="3">
@@ -41,7 +41,7 @@
 <a href="${e}" class="btn btn-success btn-block myBoldFont">Continue Shopping....</a>
 </div><div class="col-sm-2"><span>&nbsp;</span></div>
 <div class="col-sm-3">
-<a href="${e}checkout" class="btn btn-success btn-block myBoldFont">Check Out</a>
+<a href="${e}user/checkout" class="btn btn-success btn-block myBoldFont">Check Out</a>
 </div></c:if>
 </div></td></tr></table></div>
 <br/>

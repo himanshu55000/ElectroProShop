@@ -1,1 +1,6 @@
-com\ElectroProShopBacked\AppTest.class
+com\ElectroProShopBacked\UserDetailsDAOTest.class
+com\ElectroProShopBacked\OrdersDAOTest.class
+com\ElectroProShopBacked\ProductDAOTest.class
+com\ElectroProShopBacked\SupplerDAOTest.class
+com\ElectroProShopBacked\CartDAOTest.class
+com\ElectroProShopBacked\CategoryDAOTest.class

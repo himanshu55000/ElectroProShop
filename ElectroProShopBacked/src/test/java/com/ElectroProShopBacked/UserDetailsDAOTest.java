@@ -1,9 +1,12 @@
-/*package com.ElectroProShopBacked;
+package com.ElectroProShopBacked;
+
+import javax.validation.ConstraintViolationException;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import com.ElectroProShopBacked.dao.UserDetailsDAO;
 import com.ElectroProShopBacked.model.UserDetails;
@@ -19,7 +22,7 @@ public class UserDetailsDAOTest{
 		context.scan("com");
 		context.refresh();
 	}
-	@Test
+	@Test(expected=DataIntegrityViolationException.class)
 	public void testAddUserDetails() {
 		UserDetails userDetails=(UserDetails)context.getBean("userDetails");
 		UserDetailsDAO userDetailsDAO=(UserDetailsDAO)context.getBean("userDetailsDAO");
@@ -33,11 +36,6 @@ public class UserDetailsDAOTest{
 		userDetails.setRole("ROLE_ADMIN");
 		Assert.assertEquals(true, userDetailsDAO.addUserDetails(userDetails));
 	}
-	@Test
-	public void testValidateUser() {
-		UserDetailsDAO userDetailsDAO=(UserDetailsDAO)context.getBean("userDetailsDAO");
-		Assert.assertEquals(true, userDetailsDAO.validateUser("admin", "admin"));
-	}
 	
 	@AfterClass
 	public static void tearDown(){
@@ -45,4 +43,3 @@ public class UserDetailsDAOTest{
 	}
 	
 }
-*/

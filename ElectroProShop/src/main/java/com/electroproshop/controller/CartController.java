@@ -22,22 +22,22 @@ public class CartController {
 	CartDAO cartDAO;
 	@Autowired
 	ProductDAO producDAO;
-	@RequestMapping("/cart")
+	@RequestMapping("/user/cart")
 	public ModelAndView addToCart() {
 		ModelAndView m = new ModelAndView("cart");
 		List<Cart> list=cartDAO.getCartByUser(SecurityContextHolder.getContext().getAuthentication().getName());
 		m.addObject("cartList", list);
 		return m;
 	}
-	@RequestMapping("/checkout")
+	@RequestMapping("/user/checkout")
 	public ModelAndView checkout() {
 		ModelAndView m = new ModelAndView("checkout");
 		return m;
 	}
-	@RequestMapping("/addToCart/{pid}")
+	@RequestMapping("/user/addToCart/{pid}")
 	public ModelAndView addToCart(@PathVariable int pid) {
 		Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
-		ModelAndView m = new ModelAndView("redirect:/cart");
+		ModelAndView m = new ModelAndView("redirect:/user/cart");
 		Product product=producDAO.getProduct(pid);
 		UserDetails user=new UserDetails();
 		user.setUsername(authentication.getName());
@@ -59,15 +59,15 @@ public class CartController {
 		cartDAO.insertOrUpdateCart(cart);
 		return m;
 	}
-	@RequestMapping("/deleteCart/{cartId}")
+	@RequestMapping("/user/deleteCart/{cartId}")
 	public ModelAndView deleteCart(@PathVariable int cartId) {
-		ModelAndView m = new ModelAndView("redirect:/cart");
+		ModelAndView m = new ModelAndView("redirect:/user/cart");
 		cartDAO.deleteCart(cartId);
 		return m;
 	}
-	@RequestMapping("/updateCart/{cartId}/{flag}")
+	@RequestMapping("/user/updateCart/{cartId}/{flag}")
 	public ModelAndView deleteCart(@PathVariable int cartId,@PathVariable char flag) {
-		ModelAndView m = new ModelAndView("redirect:/cart");
+		ModelAndView m = new ModelAndView("redirect:/user/cart");
 		Cart cart=cartDAO.getCart(cartId,SecurityContextHolder.getContext().getAuthentication().getName());
 		switch(flag){
 		case '+':

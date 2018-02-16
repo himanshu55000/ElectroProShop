@@ -24,25 +24,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 	@Transactional
 	public boolean addUserDetails(UserDetails userDetails) {
 		Session session = sessionFactory.getCurrentSession();
-		try {
-			session.saveOrUpdate(userDetails);
+			session.save(userDetails);
 			return true;
-		} catch (Exception e) {
-			return false;
-		}
 	}
-
-	public boolean validateUser(String username, String password) {
-		Session session = sessionFactory.openSession();
-		Query<UserDetails> query=session.createQuery("from UserDetails where username=:user and password=:pass");
-		query.setParameter("user", username);
-		query.setParameter("pass",password);
-		List<UserDetails> list=query.list();
-		session.close();
-		for(UserDetails user:list)
-			if (username.equals(user.getUsername()) && password.equals(user.getPassword()))
-					return true;
-		return false;
-	}
-
 }

@@ -8,7 +8,7 @@
 <table class="table"><tr><th colspan="2">
 <div class="list-group-item list-group-item-info" style="margin: -25px">
 <center><h2><b>Shipping Details</b></h2></center></div></th></tr>
-				<form action="${e}placeOrder" method="post">
+				<form action="${e}user/placeOrder" method="post">
 				<tr><th class="text-center" colspan="2"><h3><b>Shipping Address</b></h3></th></tr>
 				<tr><th>House Locality</th><td>
 				<input name="locality" class="form-control" required="required"/></td>
@@ -20,7 +20,7 @@
 				<input name="state" class="form-control" required="required" pattern="[A-Za-z]+[ ]*[A-Za-z]*" title="Enter a valid name"/></td>
 				</tr>
 				<tr><th>Pincode</th><td>
-				<input name="pincode" class="form-control" pattern="[0-9]{6}" title="Pincode must be six digit long" maxlength="6"/></td>
+				<input name="pincode" class="form-control" pattern="[0-9]{6}" title="Pincode must be six digit long" maxlength="6" required=""/></td>
 				</tr>
 				<tr><th class="text-center" colspan="2"><h3><b>Payment</b></h3></th></tr>
 				<tr><th>Payment Mode</th><td>&nbsp;

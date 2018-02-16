@@ -5,7 +5,9 @@ com\ElectroProShopBacked\daoImpl\CategoryDAOImpl.class
 com\ElectroProShopBacked\model\Product.class
 com\ElectroProShopBacked\model\Orders.class
 com\ElectroProShopBacked\dao\CartDAO.class
+com\ElectroProShopBacked\model\ShippingAddress.class
 com\ElectroProShopBacked\dao\SupplierDAO.class
+com\ElectroProShopBacked\dao\OrdersDAO.class
 com\ElectroProShopBacked\model\Supplier.class
 com\ElectroProShopBacked\dao\UserDetailsDAO.class
 com\ElectroProShopBacked\daoImpl\SupplierDAOImpl.class
@@ -13,6 +15,7 @@ com\ElectroProShopBacked\daoImpl\CartDAOImpl.class
 com\ElectroProShopBacked\App.class
 com\ElectroProShopBacked\model\UserDetails.class
 com\ElectroProShopBacked\config\DBConfig.class
+com\ElectroProShopBacked\daoImpl\OrdersDAOImpl.class
 com\ElectroProShopBacked\dao\CategoryDAO.class
 com\ElectroProShopBacked\daoImpl\UserDetailsDAOImpl.class
 com\ElectroProShopBacked\model\Cart.class

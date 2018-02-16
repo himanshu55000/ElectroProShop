@@ -9,7 +9,7 @@
 <a href="${e}" class="btn btn-success btn-block">Continue Shopping....</a>
 </div>
 <div class="col-sm-offset-2 col-sm-5">
-<a href="${e}myOrders" class="btn btn-success btn-block">View Orders</a>
+<a href="${e}user/myOrders" class="btn btn-success btn-block">View Orders</a>
 </div>
 </div>
 </center>

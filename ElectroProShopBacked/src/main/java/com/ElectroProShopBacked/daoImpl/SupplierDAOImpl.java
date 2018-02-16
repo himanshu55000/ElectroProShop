@@ -24,33 +24,21 @@ public class SupplierDAOImpl implements SupplierDAO {
 	@Transactional
 	public boolean addSupplier(Supplier supplier) {
 		Session session = sessionFactory.getCurrentSession();
-		try {
 			session.save(supplier);
 			return true;
-		} catch (Exception e) {
-			return false;
-		}
 	}
 	@Transactional
 	public boolean updateSupplier(Supplier supplier) {
 		Session session = sessionFactory.getCurrentSession();
-		try {
 			session.update(supplier);
 			return true;
-		} catch (Exception e) {
-			return false;
-		}
 	}
 	
 	@Transactional
 	public boolean deleteSupplier(Supplier supplier) {
 		Session session = sessionFactory.getCurrentSession();
-		try {
 			session.delete(supplier);
 			return true;
-		} catch (Exception e) {
-			return false;
-		}
 	}
 
 	public Supplier getSupplierById(int id) {

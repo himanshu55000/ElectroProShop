@@ -28,7 +28,7 @@ bottom: 0;position:absolute;width:98%;
 <br/><br/><br/><div class="col-sm-4 thumbnail" id="proImg">
 <img src='<c:url value="/resources/images/${product.imageName}"/>' alt="${product.proName}" />
  <div class="caption">
-          <a href="${e}addToCart/${product.proId}" class="btn btn-danger btn-block myBoldFont"><h4><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</h4></a>
+          <a href="${e}user/addToCart/${product.proId}" class="btn btn-danger btn-block myBoldFont"><h4><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</h4></a>
         </div>
 </div>
 <div class="col-sm-8">
@@ -38,7 +38,7 @@ bottom: 0;position:absolute;width:98%;
   <br/>
   <h4><b>Seller : </b>${product.supplier.supplierName}</h4>
   <br/>
-  <h4><b>Category : </b>${product.supplier.supplierName}</h4>
+  <h4><b>Category : </b>${product.category.categoryName}</h4>
   <br/>
   <h4><b>Cash On Delevery : </b>Eligible</h4>
   <br/>

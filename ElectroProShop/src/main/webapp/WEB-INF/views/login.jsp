@@ -15,7 +15,7 @@
 							<form action="perform_login" method="post" class="form-horizontal">
 							<div id="username">
 							<label>Username</label>
-							<input type="text" name="username" class="form-control" required="" maxlength="25"/>
+							<input type="text" pattern=".{3,}" title="Username must have atleast 3 characters" name="username" class="form-control" required="" maxlength="25"/>
 							</div><br/>
 							<div id="password">
 							<label>Password</label>

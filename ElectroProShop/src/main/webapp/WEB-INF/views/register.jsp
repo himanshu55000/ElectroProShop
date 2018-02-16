@@ -7,15 +7,19 @@
 </style>
 <div class="container-fluid loginback"><br/>
 <div class="container col-sm-4 col-sm-offset-4" style="background:#aaa;margin-bottom: 20px;">
-							<center><h1>Sign Up</h1></center>
+							<center>
+							<c:if test="${msg!=null}"><br/><br/>
+							<span class="msg">${msg}</span>
+							</c:if>
+							<h1>Sign Up</h1></center>
 							<form action="addUser" method="post" class="form-horizontal">
 							<div id="name">
 							<label>Enter Name</label>
-							<input name="full_name" class="form-control" required="" maxlength="25" pattern="[A-Za-z]+[ ]*[A-Za-z]*" title="Enter a valid name"/>
+							<input name="full_name" class="form-control" required="" maxlength="25" pattern="[A-Za-z]{3,}[ ]*[A-Za-z]*" title="Enter a valid name"/>
 							</div><br/>
 							<div id="email">
 							<label>Enter Email</label>
-							<input type="email" name="email" class="form-control" required="" title="Enter a valid email address"/>
+							<input type="email" name="email" class="form-control" required="" pattern="[A-Za-z0-9]{2,}[@]{1}[A-Za-z]{2,}[.]{1}[A-Za-z]{2,3}" title="Enter a valid email address"/>
 							</div><br/>
 							<div id="mobile">
 							<label>Mobile Number</label>
@@ -23,7 +27,7 @@
 							</div><br/>
 							<div id="username">
 							<label>Create Username</label>
-							<input name="username" class="form-control" required=""/>
+							<input name="username" class="form-control" required="" pattern=".{3,}" title="Username must have atleast 3 characters"/>
 							</div><br/>
 							<div id="password">
 							<label>Create Password</label>

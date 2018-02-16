@@ -23,10 +23,11 @@ public class CartDAOImpl implements CartDAO{
 	
 
 	@Transactional
-	public void insertOrUpdateCart(Cart cart)
+	public boolean insertOrUpdateCart(Cart cart)
 	{
 		Session session=sessionFactory.getCurrentSession();
 		session.saveOrUpdate(cart);
+		return true;
 	}
 	
 	public Cart getCart(int id,String username)
@@ -46,10 +47,11 @@ public class CartDAOImpl implements CartDAO{
 	}
 	
 	@Transactional
-	public void deleteCart(int cartId)
+	public boolean deleteCart(int cartId)
 	{
 		Session session=sessionFactory.getCurrentSession();
 		session.delete(session.get(Cart.class, cartId));
+		return true;
 	}
 
 

@@ -24,33 +24,21 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Transactional
 	public boolean addCategory(Category category) {
 		Session session = sessionFactory.getCurrentSession();
-		try {
-			session.save(category);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
+		session.save(category);
+		return true;
 	}
 	@Transactional
 	public boolean updateCategory(Category category) {
 		Session session = sessionFactory.getCurrentSession();
-		try {
 			session.update(category);
 			return true;
-		} catch (Exception e) {
-			return false;
-		}
 	}
 	
 	@Transactional
 	public boolean deleteCategory(Category category) {
 		Session session = sessionFactory.getCurrentSession();
-		try {
 			session.delete(category);
 			return true;
-		} catch (Exception e) {
-			return false;
-		}
 	}
 
 	public Category getCategoryById(int id) {

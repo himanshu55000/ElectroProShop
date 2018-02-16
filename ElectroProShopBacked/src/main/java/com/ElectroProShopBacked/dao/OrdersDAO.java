@@ -6,7 +6,7 @@ import com.ElectroProShopBacked.model.Orders;
 import com.ElectroProShopBacked.model.ShippingAddress;
 
 public interface OrdersDAO {
-	public void insertOrders(Orders orders);
-	public void insertShippingAddress(ShippingAddress address);
+	public boolean insertOrders(Orders orders);
+	public boolean insertShippingAddress(ShippingAddress address);
 	public List<Orders> getOrdersByUser(String username);
 }

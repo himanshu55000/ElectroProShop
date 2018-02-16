@@ -20,10 +20,11 @@ public class ProductDAOImpl implements ProductDAO{
 		}
 		
 		@Transactional
-		public void insertOrUpdateProduct(Product product)
+		public boolean insertOrUpdateProduct(Product product)
 		{
 			Session session=sessionFactory.getCurrentSession();
 			session.saveOrUpdate(product);
+			return true;
 		}
 		
 		public Product getProduct(int prod_id)
@@ -44,9 +45,10 @@ public class ProductDAOImpl implements ProductDAO{
 		
 		
 		@Transactional
-		public void deleteProduct(Product product)
+		public boolean deleteProduct(Product product)
 		{
 			sessionFactory.getCurrentSession().delete(product);
+			return true;
 		}
 		
 }
