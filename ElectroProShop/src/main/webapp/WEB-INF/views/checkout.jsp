@@ -30,7 +30,7 @@
 				<tr><td colspan="2">
 <div class="row">
 <div class="col-sm-offset-2 col-sm-3">
-<a href="${e}cart" class="btn btn-danger btn-block myBoldFont" id="goBack">Go Back</a>
+<a href="${e}user/cart" class="btn btn-danger btn-block myBoldFont" id="goBack">Go Back</a>
 </div><div class="col-sm-2"><span>&nbsp;</span></div>
 <div class="col-sm-3">
 <input type="submit" value="Place Order" class="btn btn-danger btn-block myBoldFont"/>
